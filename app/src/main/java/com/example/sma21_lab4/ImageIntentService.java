@@ -14,18 +14,12 @@ public class ImageIntentService extends IntentService {
 
     public ImageIntentService() {
         super("ImageIntentService");
-        System.out.println("/////////////////////////////////////////");
-        System.out.println("CONSTRUCTOR INTENT SERVICE!!");
-        System.out.println("/////////////////////////////////////////");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
             final String param = intent.getStringExtra(WebSearchActivity.EXTRA_URL);
-            System.out.println("/////////////////////////////////////////");
-            System.out.println("SE PREIA EXTRA");
-            System.out.println("/////////////////////////////////////////");
             handleDownloadAction(param);
         }
     }
@@ -50,9 +44,6 @@ public class ImageIntentService extends IntentService {
                 e.printStackTrace();
             }
 
-            System.out.println("/////////////////////////////////////////");
-            System.out.println("BEFORE THREAD");
-            System.out.println("/////////////////////////////////////////");
 
             // simulate longer job ...
             Thread.sleep(5000);
@@ -60,7 +51,6 @@ public class ImageIntentService extends IntentService {
             ((MyApplication) getApplicationContext()).setBitmap(bmp);
             // start second activity to show result
             Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
-            // ???
             startActivity(intent);
 
         } catch (IOException e) {

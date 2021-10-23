@@ -15,7 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class WebSearchActivity extends AppCompatActivity {
-    public static final String EXTRA_URL = "EXTRA_URL";
+    public static final String EXTRA_URL = "Clipboard";
     private WebView myWebView;
 
     private class MyWebViewClient extends WebViewClient {
@@ -64,9 +64,6 @@ public class WebSearchActivity extends AppCompatActivity {
         switch (view.getId())
         {
             case R.id.bLoadBackground:
-                System.out.println("/////////////////////////////////////////");
-                System.out.println("AI_DAT_CLICK_PE_BUTON");
-                System.out.println("/////////////////////////////////////////");
                 Intent intent = new Intent(this, ImageIntentService.class);
                 intent.putExtra(EXTRA_URL, url);
                 startService(intent);

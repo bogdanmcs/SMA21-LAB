@@ -1,5 +1,6 @@
 package com.example.sma21_lab4;
 
+import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -11,12 +12,20 @@ import android.os.IBinder;
 
 import androidx.core.app.NotificationCompat;
 
-public class ForegroundImageService extends Service {
+public class ForegroundImageService extends IntentService {
     public static final String STARTFOREGROUND_ACTION = "myaction.startforeground";
     public static final String STOPFOREGROUND_ACTION = "myaction.stopforeground";
     public static final int FOREGROUND_SERVICE_ID = 1234;
 
     public ForegroundImageService() {
+        super("ForegroundImageService");
+    }
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+        if (intent != null) {
+            onStartCommand(intent, 0, FOREGROUND_SERVICE_ID);
+        }
     }
 
     @Override

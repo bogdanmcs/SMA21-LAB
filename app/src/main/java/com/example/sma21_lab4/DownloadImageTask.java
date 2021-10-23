@@ -1,11 +1,19 @@
 package com.example.sma21_lab4;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    private static final String STOPFOREGROUND_ACTION = "myaction.stopforeground";
     private Context context;
 
 
@@ -15,18 +23,37 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected Bitmap doInBackground(String... urls) {
-
         Bitmap bmp = null;
+        try {
+            String longURL = URLTools.getLongUrl(urls[0]);
+            try {
+                InputStream in = new URL(longURL).openStream();
+                bmp = BitmapFactory.decodeStream(in);
+
+            } catch (Exception e) {
+                Log.e("Error Message", e.getMessage());
+                e.printStackTrace();
+            }
+
+            // simulate longer job ...
+            Thread.sleep(5000);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         return bmp;
-
-
     }
 
     protected void onPostExecute(Bitmap result) {
         // save bitmap result in application class
+        ((MyApplication) context.getApplicationContext()).setBitmap(result);
 
         // send intent to stop foreground service
-
+        Intent stopIntent = new Intent(context.getApplicationContext(), ForegroundImageService.class);
+        stopIntent.setAction(STOPFOREGROUND_ACTION);
+        context.startService(stopIntent);
     }
 }
