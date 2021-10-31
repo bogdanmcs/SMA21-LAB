@@ -7,7 +7,6 @@ import android.os.Build;
 
 public class App extends Application {
     public static final String CHANNEL_ID = "channel_battery";
-    private PowerConnectionReceiver powerConnectionReceiver = new PowerConnectionReceiver();
 
     public void onCreate () {
         super.onCreate();
