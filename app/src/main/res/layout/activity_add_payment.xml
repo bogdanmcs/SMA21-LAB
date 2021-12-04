@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+
+    <EditText
+        android:id="@+id/eName"
+        android:layout_width="305dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eCost"
+        android:layout_width="305dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eName" />
+
+    <Spinner
+        android:id="@+id/sType"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eCost" />
+
+    <TextView
+        android:id="@+id/tTimestamp"
+        android:layout_width="305dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sType" />
+
+    <Button
+        android:id="@+id/bUpdate"
+        android:layout_width="128dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Update"
+        android:onClick="clicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tTimestamp" />
+
+    <Button
+        android:id="@+id/bDelete"
+        android:layout_width="116dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:text="Delete"
+        android:onClick="clicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toEndOf="@+id/bUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/tTimestamp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

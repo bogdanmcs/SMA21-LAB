@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Payments found:" />
+
+    <TextView
+        android:id="@+id/tLoginDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="tLoginDetail"
+        android:paddingStart="110dp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/tUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="tUser"
+        android:paddingStart="260dp"
+        tools:ignore="RtlSymmetry" />
+
+    <ListView
+        android:id="@+id/listPayments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lBottom"
+        android:layout_below="@+id/tStatus"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="4dp" />
+
+    <LinearLayout
+        android:id="@+id/lBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bPrevious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="clicked"
+            android:text="&#8592; Previous"/>
+
+        <Button
+            android:id="@+id/bSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="clicked"
+            android:text="Sign out"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lBottom"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:onClick="clicked"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/purple_700" />
+
+</RelativeLayout>
